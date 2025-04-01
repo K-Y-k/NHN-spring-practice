@@ -1,0 +1,39 @@
+# application.properties와 비교해보기
+#TODO-1 ymal 은 계층 구조를 가지고 있다. (space 가 매우 중요)
+spring:
+  application:
+    name: springBoot
+  config:
+    location:
+
+
+greeting:
+  english: hello world
+  korean: 안녕 세상
+
+number:
+  one: 1
+  two: 2
+  three:
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+greeting:
+  english: dev.eng
+  korean: dev.kor
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+greeting:
+  english: prod.eng
+  korean: dev.kor
