@@ -1,12 +1,14 @@
 package com.example.demo.bean;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @AllArgsConstructor
 public class OrderReceiver {
     private OrderReceiveProperties orderReceiveProperties;
 
     public void receiveOrder() {
-        System.out.println(orderReceiveProperties.getMessage());
+        log.info(orderReceiveProperties.getMessage());
     }
 }

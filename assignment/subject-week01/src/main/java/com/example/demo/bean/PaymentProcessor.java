@@ -1,12 +1,14 @@
 package com.example.demo.bean;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @AllArgsConstructor
 public class PaymentProcessor {
     private PaymentProperties paymentProperties;
 
     public void processPayment() {
-        System.out.println(paymentProperties.getMessage());
+        log.info(paymentProperties.getMessage());
     }
 }

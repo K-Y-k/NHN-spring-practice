@@ -1,0 +1,63 @@
+<!--
+ resources 하위에 logback-spring.xml 파일을 생성한다.
+
+ <configuration> : 모든 Logback 설정의 루트 요소.
+ <logger>        : 특정 패키지나 클래스에 대한 로그 설정. 로그 레벨과 appender 참조를 포함.
+ <root>          : 애플리케이션의 모든 로그에 적용될 기본 로거 설정. 로그 레벨과 appender 참조를 포함.
+ <appender>      : 로그 메시지를 출력할 대상을 정의. 여기에는 이름과 클래스, 로그 형식등의 설정이 포함.
+                   ex) ConsoleAppender: 표준 출력(콘솔)으로 로그를 보내는 appender.
+                   ex) FileAppender: 파일로 로그를 기록하는 appender.
+ <encoder>       : 로그 메시지의 출력 형식을 정의.
+ <pattern>       : 로그 날짜, 로그 레벨, 스레드 이름, 로거 이름, 메시지 등을 지정.
+ -->
+
+<configuration>
+    <!-- 콘솔 출력을 위한 Appender 정의 -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- 로그 메시지의 출력 형식을 정의 -->
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 파일 출력을 위한 Appender 정의 -->
+    <!--기본 로그 파일-->
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>system.log</file>
+
+        <append>false</append> <!--false로 이전 로그에 덧붙이기를 방지하여 현재 실행할 때의 로그만 남기게 할 수 있다.-->
+
+        <encoder>
+            <pattern>%date %level [%thread] %logger{10} [%file:%line] %msg%n</pattern>
+        </encoder>
+    </appender>
+    <!--aop 로그 파일 - TimeBasedRollingPolicy를 사용하기 위해 RollingFileAppender를 사용-->
+    <appender name="FILE-AOP" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- TimeBasedRollingPolicy 사용 -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- 파일명에 날짜 및 시간을 포함하여 1시간마다 롤링 -->
+            <fileNamePattern>aop.%d{yyyy-MM-dd.HH}.log</fileNamePattern>
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>%date %level [%thread] %logger{10} [%file:%line] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+
+    <!-- 특정 패키지에 대한 로그 레벨 설정-->
+    <!--시스템 로그 파일 패키지 제한 설정  -> bean 폴더의 로그만 적용-->
+    <logger name="com.example.demo.bean" level="info">
+        <appender-ref ref="FILE"/>
+    </logger>
+    <!-- AOP 로그 파일 패키지 제한 설정 -> aop 폴더의 로그만 적용 -->
+    <logger name="com.example.demo.aop" level="debug">
+        <appender-ref ref="FILE-AOP"/>
+    </logger>
+
+    <!-- Root Logger 설정: 전체 시스템 로그는 콘솔만 기록 -->
+    <root level="info">
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+</configuration>
