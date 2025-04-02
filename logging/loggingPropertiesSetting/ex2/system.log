@@ -1,0 +1,8 @@
+2025-04-02T16:24:30.880+09:00  INFO 31324 --- [springBoot] [main] org.example.Main                         : Starting Main using Java 21.0.6 with PID 31324 (C:\Users\kyk49\intelliJ-ultimate-workspace\spring\spring-boot-core\target\classes started by kyk49 in C:\Users\kyk49\intelliJ-ultimate-workspace\spring\spring-boot-core)
+2025-04-02T16:24:30.883+09:00  INFO 31324 --- [springBoot] [main] org.example.Main                         : No active profile set, falling back to 1 default profile: "default"
+2025-04-02T16:24:31.536+09:00  INFO 31324 --- [springBoot] [main] org.example.Main                         : Started Main in 1.258 seconds (process running for 1.978)
+2025-04-02T16:24:31.540+09:00  WARN 31324 --- [springBoot] [main] org.example.runner.AppStartupRunner      : 석산고
+2025-04-02T16:24:48.283+09:00  INFO 29312 --- [springBoot] [main] org.example.Main                         : Starting Main using Java 21.0.6 with PID 29312 (C:\Users\kyk49\intelliJ-ultimate-workspace\spring\spring-boot-core\target\classes started by kyk49 in C:\Users\kyk49\intelliJ-ultimate-workspace\spring\spring-boot-core)
+2025-04-02T16:24:48.286+09:00  INFO 29312 --- [springBoot] [main] org.example.Main                         : No active profile set, falling back to 1 default profile: "default"
+2025-04-02T16:24:48.947+09:00  INFO 29312 --- [springBoot] [main] org.example.Main                         : Started Main in 1.248 seconds (process running for 2.089)
+2025-04-02T16:24:48.950+09:00  WARN 29312 --- [springBoot] [main] org.example.runner.AppStartupRunner      : 석산고

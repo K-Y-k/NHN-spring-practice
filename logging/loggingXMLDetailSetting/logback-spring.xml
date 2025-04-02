@@ -1,0 +1,43 @@
+<!--
+ resources 하위에 logback-spring.xml 파일을 생성한다.
+
+ <configuration> : 모든 Logback 설정의 루트 요소.
+ <logger>        : 특정 패키지나 클래스에 대한 로그 설정. 로그 레벨과 appender 참조를 포함.
+ <root>          : 애플리케이션의 모든 로그에 적용될 기본 로거 설정. 로그 레벨과 appender 참조를 포함.
+ <appender>      : 로그 메시지를 출력할 대상을 정의. 여기에는 이름과 클래스, 로그 형식등의 설정이 포함.
+                   ex) ConsoleAppender: 표준 출력(콘솔)으로 로그를 보내는 appender.
+                   ex) FileAppender: 파일로 로그를 기록하는 appender.
+ <encoder>       : 로그 메시지의 출력 형식을 정의.
+ <pattern>       : 로그 날짜, 로그 레벨, 스레드 이름, 로거 이름, 메시지 등을 지정.
+ -->
+
+<configuration>
+    <!-- TODO-1 콘솔 출력을 위한 Appender 정의 -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- 로그 메시지의 출력 형식을 정의 -->
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- TODO-2 파일 출력을 위한 Appender 정의 -->
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>system.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%date %level [%thread] %logger{10} [%file:%line] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- TODO-3 특정 패키지에 대한 로그 레벨 설정 -->
+    <logger name="org.example.greeting" level="info">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
+    <!-- TODO-4 Root Logger 설정 -->
+    <root level="info">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="FILE"/>
+    </root>
+
+</configuration>

@@ -1,0 +1,41 @@
+<!--
+ resources 하위에 logback-spring.xml 파일을 생성한다.
+
+ <configuration> : 모든 Logback 설정의 루트 요소.
+ <logger>        : 특정 패키지나 클래스에 대한 로그 설정. 로그 레벨과 appender 참조를 포함.
+ <root>          : 애플리케이션의 모든 로그에 적용될 기본 로거 설정. 로그 레벨과 appender 참조를 포함.
+ <appender>      : 로그 메시지를 출력할 대상을 정의. 여기에는 이름과 클래스, 로그 형식등의 설정이 포함.
+                   ex) ConsoleAppender: 표준 출력(콘솔)으로 로그를 보내는 appender.
+                   ex) FileAppender: 파일로 로그를 기록하는 appender.
+ <encoder>       : 로그 메시지의 출력 형식을 정의.
+ <pattern>       : 로그 날짜, 로그 레벨, 스레드 이름, 로거 이름, 메시지 등을 지정.
+ -->
+
+<configuration>
+    <!--일반적인 로그를 찍기 위한 시스템 콘솔 로그 설정 추가-->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!--로그에 색을 지정하여 입힐 수 있다.-->
+            <pattern>%red(%d{yyyy-MM-dd HH:mm:ss}) %white([%thread]) %-5level %logger{36} - %highlight(%msg) %n</pattern>        </encoder>
+    </appender>
+
+    <!--TODO-1 로그를 파일로 찍기 위해 설정을 추가한다 -->
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>system.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%date %level [%thread] %logger{10} [%file:%line] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- runner 패키지의 로그는 info이상의 로그를 콘솔에 찍음
+         additivity="false"로 하면 로그가 누적되지 않고 새로 갱신-->
+    <logger name="org.example.runner" level="info" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
+    <!--모든 패키지는 info이상의 로그를 파일에 찍음-->
+    <root level="info">
+        <appender-ref ref="FILE"/>
+    </root>
+</configuration>

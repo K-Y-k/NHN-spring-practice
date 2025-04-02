@@ -1,0 +1,16 @@
+2025-04-02 16:48:55,596 INFO [main] o.e.Main [StartupInfoLogger.java:50] Starting Main using Java 21.0.6 with PID 10256 (C:\Users\kyk49\intelliJ-ultimate-workspace\spring\spring-boot-core\target\classes started by kyk49 in C:\Users\kyk49\intelliJ-ultimate-workspace\spring\spring-boot-core)
+2025-04-02 16:48:55,600 INFO [main] o.e.Main [SpringApplication.java:654] No active profile set, falling back to 1 default profile: "default"
+2025-04-02 16:48:56,225 INFO [main] o.e.Main [StartupInfoLogger.java:56] Started Main in 1.294 seconds (process running for 2.083)
+2025-04-02 16:49:00,418 INFO [main] o.e.Main [StartupInfoLogger.java:50] Starting Main using Java 21.0.6 with PID 28708 (C:\Users\kyk49\intelliJ-ultimate-workspace\spring\spring-boot-core\target\classes started by kyk49 in C:\Users\kyk49\intelliJ-ultimate-workspace\spring\spring-boot-core)
+2025-04-02 16:49:00,420 INFO [main] o.e.Main [SpringApplication.java:654] No active profile set, falling back to 1 default profile: "default"
+2025-04-02 16:49:01,056 INFO [main] o.e.Main [StartupInfoLogger.java:56] Started Main in 1.261 seconds (process running for 1.971)
+2025-04-02 16:49:11,317 INFO [main] o.e.Main [StartupInfoLogger.java:50] Starting Main using Java 21.0.6 with PID 21600 (C:\Users\kyk49\intelliJ-ultimate-workspace\spring\spring-boot-core\target\classes started by kyk49 in C:\Users\kyk49\intelliJ-ultimate-workspace\spring\spring-boot-core)
+2025-04-02 16:49:11,321 INFO [main] o.e.Main [SpringApplication.java:654] No active profile set, falling back to 1 default profile: "default"
+2025-04-02 16:49:12,054 INFO [main] o.e.Main [StartupInfoLogger.java:56] Started Main in 1.486 seconds (process running for 2.314)
+2025-04-02 16:49:12,058 INFO [main] o.e.r.AppStartupRunner [AppStartupRunner.java:22] 석산고
+2025-04-02 16:49:12,059 INFO [main] o.e.r.AppStartupRunner [AppStartupRunner.java:23] hello, high school
+2025-04-02 16:49:12,059 INFO [main] o.e.r.AppStartupRunner [AppStartupRunner.java:25] 조선대
+2025-04-02 16:49:12,060 INFO [main] o.e.r.AppStartupRunner [AppStartupRunner.java:26] hello, university
+2025-04-02 16:49:49,577 INFO [main] o.e.Main [StartupInfoLogger.java:50] Starting Main using Java 21.0.6 with PID 4128 (C:\Users\kyk49\intelliJ-ultimate-workspace\spring\spring-boot-core\target\classes started by kyk49 in C:\Users\kyk49\intelliJ-ultimate-workspace\spring\spring-boot-core)
+2025-04-02 16:49:49,580 INFO [main] o.e.Main [SpringApplication.java:654] No active profile set, falling back to 1 default profile: "default"
+2025-04-02 16:49:50,230 INFO [main] o.e.Main [StartupInfoLogger.java:56] Started Main in 1.296 seconds (process running for 2.123)
