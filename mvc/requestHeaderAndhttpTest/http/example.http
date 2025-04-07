@@ -1,0 +1,21 @@
+### http 파일로 테스트를 할 수 있다.
+### 모바일로 테스트 방법 : 개발자 모드에서 핸드폰 기종으로 설정가능
+
+### GET request to example server
+GET https://examples.http-client.intellij.net/get
+    ?generated-in=IntelliJ IDEA
+
+### 안드로이드
+GET /requestHeader?id=tom HTTP/1.1
+Host: localhost:8080
+User-Agent: Android
+
+### ios
+GET /requestHeader?id=tom HTTP/1.1
+Host: localhost:8080
+User-Agent: iOS
+
+### PC
+GET /requestHeader?id=tom HTTP/1.1
+Host: localhost:8080
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36 Edg/134.0.0.0

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thymeleaf Demo</title>
+</head>
+<body>
+        <span th:text="${greeting}" /><br />
+
+        <span th:text="${html}" /><br />
+        <span th:utext="${html}" /><br />
+
+        <table>
+            <tr th:each="item: ${list}">
+                <td th:text="${item}"></td>
+            </tr>
+        </table>
+
+        <span th:if="${#lists.size(list) > 2}">more than 2</span>
+        <span th:if="${#lists.size(list) == 2}">two</span>
+
+        my choice is :
+        <div th:switch="${choice}">
+            <p th:case="1">No.1</p>
+            <p th:case="2">22</p>
+            <p th:case="*">3 or more</p>
+        </div>
+</body>
+</html>
