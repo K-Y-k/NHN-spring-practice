@@ -2,7 +2,7 @@ package com.nhnacademy.subjectweek02.repository;
 
 import com.nhnacademy.subjectweek02.domain.Student;
 import com.nhnacademy.subjectweek02.exception.StudentAlreadyExistsException;
-import com.nhnacademy.subjectweek02.exception.StudentNotExistsException;
+import com.nhnacademy.subjectweek02.exception.StudentNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.Optional;
 
 @Slf4j
-@Repository
+@Repository("studentRepository")
 public class StudentRepositoryImpl implements StudentRepository {
     private final Map<String, Student> studentMap = new HashMap<>();
 
@@ -54,7 +54,7 @@ public class StudentRepositoryImpl implements StudentRepository {
     @Override
     public Student getStudent(String id) {
         if (!exits(id)) {
-            throw new StudentNotExistsException("Student with id " + id + " does not exist");
+            throw new StudentNotFoundException("Student with id " + id + " not found");
         }
 
         return studentMap.get(id);

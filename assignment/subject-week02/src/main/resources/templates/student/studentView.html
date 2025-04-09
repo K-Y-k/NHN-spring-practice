@@ -6,17 +6,18 @@
 </head>
 
 <body>
-    아이디: <span th:text="${student.id}"></span> </br>
-    비밀번호: <span th:text="${student.password}"></span> </br>
-    이름: <span th:text="${student.name}"></span> </br>
-    이메일: <span th:text="${student.email}"></span> </br>
+    <span th:text="#{id}"></span>: <span th:text="${student.id}"></span> </br>
+    <span th:text="#{password}"></span>: <span th:text="${student.password}"></span> </br>
+    <span th:text="#{name}"></span>: <span th:text="${student.name}"></span> </br>
+    <span th:text="#{email}"></span>: <span th:text="${student.email}"></span> </br>
 
     <div th:if="${hideScore != 'yes'}">
-        성적: <span th:text="${student.score}"></span> </br>
-        평가: <span th:text="${student.comment}"></span> </br>
+        <span th:text="#{id}"></span>: <span th:text="${student.score}"></span> </br>
+        <span th:text="#{id}"></span>: <span th:text="${student.comment}"></span> </br>
     </div>
 
     </br>
     <a th:href="@{/student/{studentId}/modify(studentId=${student.id})}">정보 수정</a>
+    <a href="/logout">로그아웃</a>
 </body>
 </html>

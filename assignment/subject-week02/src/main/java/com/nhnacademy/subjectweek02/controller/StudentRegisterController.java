@@ -3,13 +3,11 @@ package com.nhnacademy.subjectweek02.controller;
 import com.nhnacademy.subjectweek02.domain.Student;
 import com.nhnacademy.subjectweek02.domain.StudentRegisterRequest;
 import com.nhnacademy.subjectweek02.repository.StudentRepository;
-import com.nhnacademy.subjectweek02.repository.StudentRepositoryImpl;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.thymeleaf.util.StringUtils;
 
 @Controller
 @RequestMapping("/student")

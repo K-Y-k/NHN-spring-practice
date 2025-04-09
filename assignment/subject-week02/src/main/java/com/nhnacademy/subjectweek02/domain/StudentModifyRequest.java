@@ -1,15 +1,13 @@
 package com.nhnacademy.subjectweek02.domain;
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.hibernate.validator.constraints.Length;
 
 @Getter
 @AllArgsConstructor
-public class StudentRegisterRequest {
+public class StudentModifyRequest {
     @NotBlank
     private String id;
 
