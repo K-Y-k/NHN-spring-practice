@@ -30,6 +30,9 @@ public class WebConfig implements WebMvcConfigurer {
          * - 사용자가 특정 로케일을 선택하면 이를 세션에 저장해두고, 이후 요청에서 세션에 저장된 로케일을 사용하여 로케일을 결정할 수도 있다.
          * - 사용자의 Accept-Language HTTP 헤더를 기반으로 로케일을 결정할 수도 있다.
          * 
+         * FixedLocaleResolver(Locale.KOREAN)로 고정시키면
+         * TODO 2에서 LocaleChangeInterceptor을 추가할 때 변경되지 않는다.
+         * 그래서 다른 LocaleResolver로 사용
          */
         return new SessionLocaleResolver();
     }

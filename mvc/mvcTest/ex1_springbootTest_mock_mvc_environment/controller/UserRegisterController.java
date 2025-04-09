@@ -19,20 +19,15 @@ public class UserRegisterController {
         this.userRepository = userRepository;
     }
 
-    // TODO #2: 사용자 등록 form 표시
     @GetMapping
     public String userRegisterForm() {
         return "userRegister";
     }
 
-    // TODO #4: 사용자 등록 처리
-
-    /**
-     * 해당 객체가 받아오는 파라미터 변수명을 모두 일치 시키면 @ModelAttribute 생략 가능
-     */
     @PostMapping
-    public ModelAndView registerUser(UserRegisterRequest userRequest) {
-        User user = userRepository.addUser(userRequest.getId(), userRequest.getPassword(), userRequest.getAge());
+    public ModelAndView registerUser(@ModelAttribute UserRegisterRequest userRequest) {
+        User user = userRepository.addUser(userRequest.getId(), userRequest.getPassword(),
+                                           userRequest.getAge(), userRequest.getName());
 
         ModelAndView mav = new ModelAndView("user");
         mav.addObject("user", User.constructPasswordMaskedUser(user));
