@@ -1,7 +1,9 @@
 package com.nhnacademy.subjectweek02.controller;
 
 import com.nhnacademy.subjectweek02.domain.Student;
+import com.nhnacademy.subjectweek02.interceptor.LoginInterceptor;
 import com.nhnacademy.subjectweek02.repository.StudentRepository;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +25,16 @@ public class StudentRegisterTest {
     @MockitoBean
     private StudentRepository studentRepository;
 
+    @MockitoBean
+    private LoginInterceptor loginInterceptor;
+
     private final String STUDENT_ID = "studentId1";
+
+
+    @BeforeEach
+    void setUp() throws Exception {
+        when(loginInterceptor.preHandle(any(), any(), any())).thenReturn(true);
+    }
 
 
     @Test

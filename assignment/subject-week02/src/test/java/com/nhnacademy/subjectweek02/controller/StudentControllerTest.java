@@ -1,6 +1,7 @@
 package com.nhnacademy.subjectweek02.controller;
 
 import com.nhnacademy.subjectweek02.domain.Student;
+import com.nhnacademy.subjectweek02.interceptor.LoginInterceptor;
 import com.nhnacademy.subjectweek02.repository.StudentRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -11,7 +12,6 @@ import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.mockito.ArgumentMatchers.*;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -25,11 +25,15 @@ public class StudentControllerTest {
     @MockitoBean
     private StudentRepository studentRepository;
 
+    @MockitoBean
+    private LoginInterceptor loginInterceptor;
+
     private final String STUDENT_ID = "studentId1";
 
 
     @BeforeEach
-    void setUp() {
+    void setUp() throws Exception {
+        when(loginInterceptor.preHandle(any(), any(), any())).thenReturn(true);
         when(studentRepository.getStudent(STUDENT_ID)).thenReturn(Student.create(STUDENT_ID, "password1", "name1", "email1", 0, "comment1"));
     }
 

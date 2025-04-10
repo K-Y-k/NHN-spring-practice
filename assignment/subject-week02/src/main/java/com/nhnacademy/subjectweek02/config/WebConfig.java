@@ -53,8 +53,8 @@ public class WebConfig implements WebMvcConfigurer {
         /**
          * 학생 등록, 로그인 요청을 제외한 모든 요청에 로그인 체크 인터셉터 추가
          */
-//        registry.addInterceptor(loginInterceptor)
-//                .addPathPatterns("/**")
-//                .excludePathPatterns("/login", "/student/register");
+       registry.addInterceptor(loginInterceptor)
+               .addPathPatterns("/**")
+               .excludePathPatterns("/login", "/student/register");
     }
 }
