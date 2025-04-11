@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #detail-view {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #fafafa;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Segoe UI', sans-serif;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 20px;
+            margin-bottom: 6px;
+            color: #333;
+        }
+
+    </style>
+</head>
+
+<body>
+<div id="detail-view">
+    <h4 style="text-align: center">문의 상세</h4>
+
+    <label for="classification">분류</label>
+    <span id="classification" th:text="${inquiry.classification}"></span> <br/>
+
+    <label for="title">제목</label>
+    <span id="title" th:text="${inquiry.title}"></span> <br/>
+
+    <label for="content">내용</label>
+    <span id="content" th:text="${inquiry.id}"></span> <br/>
+
+    <label for="file">첨부파일</label>
+    <input type="file" name="file" id="file" multiple /> <br/>
+
+    <form>
+        <button type="submit">취소</button>
+    </form>
+</div>
+</body>
+</html>

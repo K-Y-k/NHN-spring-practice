@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            form {
+                max-width: 600px;
+                margin: 40px auto;
+                padding: 30px;
+                background-color: #fafafa;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                font-family: 'Segoe UI', sans-serif;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            }
+
+            label {
+                font-weight: bold;
+                display: block;
+                margin-top: 20px;
+                margin-bottom: 6px;
+                color: #333;
+            }
+
+            select,
+            input[type="text"],
+            textarea,
+            input[type="file"] {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                font-size: 14px;
+                box-sizing: border-box;
+                margin-bottom: 15px;
+                resize: vertical;
+            }
+
+            textarea {
+                min-height: 120px;
+            }
+
+            button[type="submit"] {
+                background-color: #007bff;
+                color: white;
+                border: none;
+                padding: 12px 20px;
+                font-size: 15px;
+                border-radius: 4px;
+                cursor: pointer;
+                margin-top: 10px;
+                transition: background-color 0.2s ease;
+            }
+
+            button[type="submit"]:hover {
+                background-color: #0056b3;
+            }
+        </style>
+    </head>
+
+    <body>
+        <form method="post" action="/cs/inquiry" enctype="multipart/form-data">
+            <h4 style="text-align: center">문의 등록</h4>
+
+            <label for="classification">분류</label>
+            <select name="classification" id="classification">
+                <option value="불만 접수">불만 접수</option>
+                <option value="제안">제안</option>
+                <option value="환불/교환">환불/교환</option>
+                <option value="칭찬해요">칭찬해요</option>
+                <option value="기타">기타</option>
+            </select>
+
+            <label for="title">제목</label>
+            <input type="text" name="title" id="title" />
+
+            <label for="content">내용</label>
+            <textarea name="content" id="content"></textarea>
+
+            <label for="file">첨부파일</label>
+            <input type="file" name="file" id="file" multiple />
+
+            <button type="submit">등록</button>
+        </form>
+    </body>
+</html>
