@@ -2,11 +2,14 @@ package com.nhnacademy.subjectweek02.controller;
 
 import com.nhnacademy.subjectweek02.domain.Student;
 import com.nhnacademy.subjectweek02.domain.StudentRegisterRequest;
+import com.nhnacademy.subjectweek02.exception.ValidationFailedException;
 import com.nhnacademy.subjectweek02.repository.StudentRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.thymeleaf.util.StringUtils;
@@ -84,7 +87,11 @@ public class StudentController {
     }
 
     @PostMapping("/{studentId}/modify")
-    public String modify(@ModelAttribute StudentRegisterRequest studentRegisterRequest) {
+    public String modify(@Valid @ModelAttribute StudentRegisterRequest studentRegisterRequest, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            throw new ValidationFailedException(bindingResult);
+        }
+
         String id = studentRegisterRequest.getId();
         String password = studentRegisterRequest.getPassword();
         String name = studentRegisterRequest.getName();
