@@ -1,50 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <style>
-        #detail-view {
-            max-width: 600px;
-            margin: 40px auto;
-            padding: 30px;
-            background-color: #fafafa;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-family: 'Segoe UI', sans-serif;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-        }
+    <head>
+        <meta charset="UTF-8">
+        <title>문의 상세</title>
+        <style>
+            #detail-view, #answer-view {
+                max-width: 600px;
+                margin: 40px auto;
+                padding: 30px;
+                background-color: #fafafa;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                font-family: 'Segoe UI', sans-serif;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            }
 
-        label {
-            font-weight: bold;
-            display: block;
-            margin-top: 20px;
-            margin-bottom: 6px;
-            color: #333;
-        }
+            label {
+                font-weight: bold;
+                display: block;
+                margin-top: 20px;
+                margin-bottom: 6px;
+                color: #333;
+            }
 
-    </style>
-</head>
+        </style>
+    </head>
 
-<body>
-<div id="detail-view">
-    <h4 style="text-align: center">문의 상세</h4>
+    <body>
+        <div id="detail-view">
+            <h4 style="text-align: center">문의 상세</h4>
 
-    <label for="classification">분류</label>
-    <span id="classification" th:text="${inquiry.classification}"></span> <br/>
+            <label for="classification">분류</label>
+            <span id="classification" th:text="${inquiry.classification}"></span> <br/>
 
-    <label for="title">제목</label>
-    <span id="title" th:text="${inquiry.title}"></span> <br/>
+            <label for="title">제목</label>
+            <span id="title" th:text="${inquiry.title}"></span> <br/>
 
-    <label for="content">내용</label>
-    <span id="content" th:text="${inquiry.id}"></span> <br/>
+            <label for="content">내용</label>
+            <span id="content" th:text="${inquiry.id}"></span> <br/>
 
-    <label for="file">첨부파일</label>
-    <input type="file" name="file" id="file" multiple /> <br/>
+            <label>첨부파일</label>
+            <ul>
+                <li th:each="file : ${fileList}">
+                    <a th:href="@{'/' + ${file.uploadFileName}}" th:text="${file.originalFileName}" target="_blank" alt="첨부 이미지"></a>
+                </li>
+            </ul>
 
-    <form>
-        <button type="submit">취소</button>
-    </form>
-</div>
-</body>
+            <a th:href="@{'/cs/' + ${customerId}}"><button>문의내역</button></a>
+        </div>
+
+        <div id="answer-view" th:if="${answer != null}">
+            <h4 style="text-align: center">답변 상세</h4>
+
+            <label for="createdDate">답변 일시</label>
+            <span id="createdDate" th:text="${#temporals.format(answer.createdDate, 'yyyy-MM-dd HH:mm')}"></span> <br/>
+
+            <label for="comment">답변 내용</label>
+            <span id="comment" th:text="${answer.comment}"></span> <br/>
+
+            <label for="writer">답변 CS담당자</label>
+            <span id="writer" th:text="${answer.writer}"></span> <br/>
+        </div>
+    </body>
 </html>

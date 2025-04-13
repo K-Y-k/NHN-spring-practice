@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Title</title>
+        <title>문의 등록</title>
         <style>
             form {
                 max-width: 600px;
@@ -52,6 +52,16 @@
                 margin-top: 10px;
                 transition: background-color 0.2s ease;
             }
+            #cancel-btn {
+                background-color: #6c757d;
+                color: white;
+                border: none;
+                padding: 12px 20px;
+                font-size: 15px;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: background-color 0.2s ease;
+            }
 
             button[type="submit"]:hover {
                 background-color: #0056b3;
@@ -78,10 +88,16 @@
             <label for="content">내용</label>
             <textarea name="content" id="content"></textarea>
 
-            <label for="file">첨부파일</label>
-            <input type="file" name="file" id="file" multiple />
+            <label for="files">첨부파일</label>
+            <input type="file" name="files" id="files" multiple />
 
-            <button type="submit">등록</button>
+            <div class="button-group">
+                <button type="submit">등록</button>
+
+                <a th:href="@{'/cs/' + ${customerId}}">
+                    <button type="button" id="cancel-btn">취소</button>
+                </a>
+            </div>
         </form>
     </body>
 </html>

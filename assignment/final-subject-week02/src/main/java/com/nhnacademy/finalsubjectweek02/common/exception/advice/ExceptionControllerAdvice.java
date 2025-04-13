@@ -1,8 +1,10 @@
 package com.nhnacademy.finalsubjectweek02.common.exception.advice;
 
+import com.nhnacademy.finalsubjectweek02.admin.exception.AdminNotFoundException;
 import com.nhnacademy.finalsubjectweek02.common.exception.ValidationFailedException;
-import com.nhnacademy.finalsubjectweek02.customer.exception.CustomerAlreadyExistsException;
 import com.nhnacademy.finalsubjectweek02.customer.exception.CustomerNotFoundException;
+import com.nhnacademy.finalsubjectweek02.inquiry.exception.InquiryAlreadyExistsException;
+import com.nhnacademy.finalsubjectweek02.inquiry.exception.InquiryNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.ui.Model;
@@ -13,7 +15,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class ExceptionControllerAdvice {
 
-    @ExceptionHandler({CustomerAlreadyExistsException.class})
+    @ExceptionHandler({InquiryAlreadyExistsException.class})
     public String alreadyExistsHandler(Exception ex, Model model) {
         log.error("Already Exists : ", ex);
         model.addAttribute("exception", ex);
@@ -21,7 +23,7 @@ public class ExceptionControllerAdvice {
         return "error/error";
     }
 
-    @ExceptionHandler({CustomerNotFoundException.class})
+    @ExceptionHandler({CustomerNotFoundException.class, AdminNotFoundException.class, InquiryNotFoundException.class})
     public String notFoundHandler(Exception ex, Model model) {
         log.error("Not Exists : ", ex);
         model.addAttribute("exception", ex);

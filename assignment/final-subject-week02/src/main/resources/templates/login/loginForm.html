@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>로그인</title>
+        <style>
+            #login-container {
+                max-width: 600px;
+                margin: 40px auto;
+                padding: 30px;
+                background-color: #fafafa;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                font-family: 'Segoe UI', sans-serif;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            }
+
+
+            .sample-info {
+                font-size: 13px;
+                color: #777;
+                margin-bottom: 20px;
+                line-height: 1.5;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="login-container">
+
+            <h4>로그인</h4>
+            <br/>
+
+            <div class="sample-info">
+                샘플 고객 ID = <strong>asd</strong> / password = <strong>asd</strong><br/>
+                샘플 CS담당자 ID = <strong>zxc</strong> / password = <strong>zxc</strong>
+            </div>
+
+            <form method="post" action="/cs/login">
+                <input type="text" name="id" placeholder="ID 입력" /> <br/>
+                <input type="password" name="password" placeholder="비밀번호 입력" /> <br/>
+                <button type="submit">로그인</button>
+            </form>
+        </div>
+    </body>
+</html>

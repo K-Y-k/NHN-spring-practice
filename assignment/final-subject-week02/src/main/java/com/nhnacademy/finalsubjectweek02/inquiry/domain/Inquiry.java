@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 
 @Getter
 @ToString
-public class Inquiry {
+public class Inquiry implements Comparable<Inquiry> {
     private long id;
     private String customerId;
     private String classification;
@@ -34,5 +34,13 @@ public class Inquiry {
 
     public void setId(long sequenceId) {
         this.id = sequenceId;
+    }
+    public void setAnswered(boolean answered) {
+        this.answered = answered;
+    }
+
+    @Override
+    public int compareTo(Inquiry o) {
+        return o.getCreatedDate().compareTo(this.getCreatedDate());
     }
 }

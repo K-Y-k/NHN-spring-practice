@@ -32,8 +32,23 @@ public class InquiryServiceImpl implements InquiryService {
     }
 
     @Override
+    public List<Inquiry> getInquiryListByNotAnswered() {
+        return inquiryRepository.getInquiryListByNotAnswered();
+    }
+
+    @Override
+    public List<Inquiry> getInquiryListByNotAnsweredAndClassification(String classification) {
+        return inquiryRepository.getInquiryListByNotAnsweredAndClassification(classification);
+    }
+
+    @Override
     public List<Inquiry> getInquiryListByCustomerId(String customerId) {
         return inquiryRepository.getInquiryListByCustomerId(customerId);
+    }
+
+    @Override
+    public List<Inquiry> getInquiryListByClassification(String customerId, String classification) {
+        return inquiryRepository.getInquiryListByClassification(customerId, classification);
     }
 
 }

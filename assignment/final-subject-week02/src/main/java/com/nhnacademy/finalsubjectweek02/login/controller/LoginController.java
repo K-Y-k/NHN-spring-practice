@@ -40,7 +40,7 @@ public class LoginController {
             }
         }
 
-        return "user/loginForm";
+        return "login/loginForm";
     }
 
     @PostMapping("/login")
@@ -49,35 +49,8 @@ public class LoginController {
         String userId = loginRequest.getId();
         String password = loginRequest.getPassword();
         if (StringUtils.isEmpty(userId) || StringUtils.isEmpty(password)) {
-            return "redirect:/login";
+            return "redirect:/cs/login";
         }
-
-//        if (adminService.existsAdmin(userId)) {
-//            if (adminService.match(userId, password)) {
-//                HttpSession session = req.getSession(true);
-//
-//                Cookie sessionCookie = new Cookie("SESSION", session.getId());
-//                res.addCookie(sessionCookie);
-//
-//                session.setAttribute("SESSION", session.getId());
-//                session.setAttribute("userId", userId);
-//
-//                return "redirect:/cs/admin/" + userId;
-//            }
-//        }
-//        if (customerService.existsCustomer(userId)) {
-//            if (customerService.match(userId, password)) {
-//                HttpSession session = req.getSession(true);
-//
-//                Cookie sessionCookie = new Cookie("SESSION", session.getId());
-//                res.addCookie(sessionCookie);
-//
-//                session.setAttribute("SESSION", session.getId());
-//                session.setAttribute("userId", userId);
-//
-//                return "redirect:/cs/" + userId;
-//            }
-//        }
 
         if (adminService.match(userId, password) || customerService.match(userId, password)) {
             HttpSession session = req.getSession(true);
@@ -95,11 +68,11 @@ public class LoginController {
             }
         }
 
-        return "redirect:/login";
+        return "redirect:/cs/login";
     }
 
     @PostMapping("/logout")
-    public String login(HttpServletRequest req,  HttpServletResponse res) {
+    public String logout(HttpServletRequest req,  HttpServletResponse res) {
         HttpSession session = req.getSession(false);
         if (Objects.nonNull(session)) {
             session.invalidate();

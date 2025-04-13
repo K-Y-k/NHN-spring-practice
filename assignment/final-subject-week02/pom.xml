@@ -87,6 +87,30 @@
                     </excludes>
                 </configuration>
             </plugin>
+
+
+            <!--maven-jacoco-plugin : Java 코드의 커버리지를 체크하는 라이브러리
+                                      테스트 코드를 실행 후 측정한 결과를 html, xml, csv 형태의 리포트 제공-->
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.12</version>
+                <executions>
+                    <execution>
+                        <id>jacoco-initialize</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>jacoco-site</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 

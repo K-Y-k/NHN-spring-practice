@@ -41,6 +41,43 @@ public class InquiryRepositoryImpl implements InquiryRepository {
     }
 
     @Override
+    public List<Inquiry> getInquiryListByNotAnswered() {
+        List<Inquiry> inquiryList = new ArrayList<>();
+
+        for (Inquiry inquiry : inquiryMap.values()) {
+            if (!inquiry.isAnswered()) {
+                inquiryList.add(inquiry);
+            }
+        }
+
+        Collections.sort(inquiryList);
+        return inquiryList;
+    }
+
+    @Override
+    public List<Inquiry> getInquiryListByNotAnsweredAndClassification(String classification) {
+        List<Inquiry> inquiryList = new ArrayList<>();
+
+        if (classification.isBlank()) {
+            for (Inquiry inquiry : inquiryMap.values()) {
+                if (!inquiry.isAnswered()) {
+                    inquiryList.add(inquiry);
+                }
+            }
+            Collections.sort(inquiryList);
+            return inquiryList;
+        }
+
+        for (Inquiry inquiry : inquiryMap.values()) {
+            if (!inquiry.isAnswered() && inquiry.getClassification().equals(classification)) {
+                inquiryList.add(inquiry);
+            }
+        }
+        Collections.sort(inquiryList);
+        return inquiryList;
+    }
+
+    @Override
     public List<Inquiry> getInquiryListByCustomerId(String customerId) {
         List<Inquiry> inquiryList = new ArrayList<>();
 
@@ -50,6 +87,30 @@ public class InquiryRepositoryImpl implements InquiryRepository {
             }
         }
 
+        Collections.sort(inquiryList);
+        return inquiryList;
+    }
+
+    @Override
+    public List<Inquiry> getInquiryListByClassification(String customerId, String classification) {
+        List<Inquiry> inquiryList = new ArrayList<>();
+
+        if (classification.isBlank()) {
+            for (Inquiry inquiry : inquiryMap.values()) {
+                if (inquiry.getCustomerId().equals(customerId)) {
+                    inquiryList.add(inquiry);
+                }
+            }
+            Collections.sort(inquiryList);
+            return inquiryList;
+        }
+
+        for (Inquiry inquiry : inquiryMap.values()) {
+            if (inquiry.getCustomerId().equals(customerId) && inquiry.getClassification().equals(classification)) {
+                inquiryList.add(inquiry);
+            }
+        }
+        Collections.sort(inquiryList);
         return inquiryList;
     }
 

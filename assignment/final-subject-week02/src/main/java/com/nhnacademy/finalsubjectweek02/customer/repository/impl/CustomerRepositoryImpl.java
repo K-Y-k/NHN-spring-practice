@@ -22,16 +22,6 @@ public class CustomerRepositoryImpl implements CustomerRepository {
         customerMap.put("asd", new Customer("asd", "asd", "asd"));
     }
 
-
-//    @Override
-//    public Customer saveCustomer(Customer customer) {
-//        if (existsCustomer(customer.getId())) {
-//            throw new CustomerAlreadyExistsException("Customer with id " + customer.getId() + " already exists");
-//        }
-//
-//        return customerMap.put(customer.getId(), customer);
-//    }
-
     @Override
     public Customer findById(String id) {
         Customer findCustomer = customerMap.get(id);

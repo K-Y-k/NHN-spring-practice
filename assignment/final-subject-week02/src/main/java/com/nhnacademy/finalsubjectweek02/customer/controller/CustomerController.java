@@ -1,5 +1,6 @@
 package com.nhnacademy.finalsubjectweek02.customer.controller;
 
+import com.nhnacademy.finalsubjectweek02.answer.service.AnswerService;
 import com.nhnacademy.finalsubjectweek02.customer.service.CustomerService;
 import com.nhnacademy.finalsubjectweek02.inquiry.domain.Inquiry;
 import com.nhnacademy.finalsubjectweek02.inquiry.service.InquiryService;
@@ -16,7 +17,6 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/cs")
 public class CustomerController {
-    private final CustomerService customerService;
     private final InquiryService inquiryService;
 
 
@@ -24,9 +24,20 @@ public class CustomerController {
     public String customerMain(@PathVariable String customerId, Model model) {
         List<Inquiry> inquiryListByCustomerId = inquiryService.getInquiryListByCustomerId(customerId);
         model.addAttribute("inquiryList", inquiryListByCustomerId);
+        model.addAttribute("customerId", customerId);
         log.info("inquiryListByCustomerId = {}", inquiryListByCustomerId);
 
-        return "user/customerMain";
+        return "customer/customerMain";
     }
 
+    @GetMapping("/{customerId}/search")
+    public String customerMain(@PathVariable String customerId, @RequestParam String classification,
+                               Model model) {
+        List<Inquiry> inquiryListByClassification = inquiryService.getInquiryListByClassification(customerId, classification);
+        model.addAttribute("inquiryList", inquiryListByClassification);
+        model.addAttribute("classification", classification);
+        log.info("inquiryListByClassification = {}", inquiryListByClassification);
+
+        return "customer/customerMain";
+    }
 }

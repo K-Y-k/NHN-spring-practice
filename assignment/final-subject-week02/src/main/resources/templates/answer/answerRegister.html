@@ -3,9 +3,106 @@
     <head>
         <meta charset="UTF-8">
         <title>Title</title>
+        <style>
+            form, #detail-view {
+                max-width: 600px;
+                margin: 40px auto;
+                padding: 30px;
+                background-color: #fafafa;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                font-family: 'Segoe UI', sans-serif;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            }
+
+            label {
+                font-weight: bold;
+                display: block;
+                margin-top: 20px;
+                margin-bottom: 6px;
+                color: #333;
+            }
+
+            select,
+            input[type="text"],
+            textarea,
+            input[type="file"] {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                font-size: 14px;
+                box-sizing: border-box;
+                margin-bottom: 15px;
+                resize: vertical;
+            }
+
+            textarea {
+                min-height: 120px;
+            }
+
+            button[type="submit"] {
+                background-color: #007bff;
+                color: white;
+                border: none;
+                padding: 12px 20px;
+                font-size: 15px;
+                border-radius: 4px;
+                cursor: pointer;
+                margin-top: 10px;
+                transition: background-color 0.2s ease;
+            }
+            #cancel-btn {
+                background-color: #6c757d;
+                color: white;
+                border: none;
+                padding: 12px 20px;
+                font-size: 15px;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: background-color 0.2s ease;
+            }
+
+            button[type="submit"]:hover {
+                background-color: #0056b3;
+            }
+        </style>
     </head>
 
     <body>
-        <h4>답변 등록</h4>
+        <div id="detail-view">
+
+            <h4 style="text-align: center">문의 상세</h4>
+
+            <label for="classification">분류</label>
+            <span id="classification" th:text="${inquiry.classification}"></span> <br/>
+
+            <label for="title">제목</label>
+            <span id="title" th:text="${inquiry.title}"></span> <br/>
+
+            <label for="content">내용</label>
+            <span id="content" th:text="${inquiry.id}"></span> <br/>
+
+            <label>첨부파일</label>
+            <ul>
+                <li th:each="file : ${fileList}">
+                    <a th:href="@{'/' + ${file.uploadFileName}}" th:text="${file.originalFileName}" target="_blank" alt="첨부 이미지"></a>
+                </li>
+            </ul>
+        </div>
+
+
+        <form method="post" th:action="@{'/cs/admin/answer/' + ${inquiryId}}">
+            <label for="comment">답변 내용</label>
+            <textarea name="comment" id="comment"></textarea>
+
+            <div class="button-group">
+                <button type="submit">등록</button>
+
+                <a th:href="@{/cs/${adminId}}">
+                    <button type="button" id="cancel-btn">취소</button>
+                </a>
+            </div>
+        </form>
     </body>
 </html>
