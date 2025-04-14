@@ -1,0 +1,20 @@
+### 요청에서 URL 매개 변수 사용 방식 (예 : ?format=json )
+GET localhost:8080/requesterHandlerMethodArgumentResolver?format=json
+
+
+### 요청에서 Accept 헤더 사용 방식 (restful 원칙에 가장 적합)
+POST localhost:8080/requesterHandlerMethodArgumentResolver
+Content-Type: application/json
+
+{
+  "name" : "유재석",
+  "age" : 50,
+  "role" : "admin",
+  "class" : "A"
+}
+
+### PageArgumentResolver 테스트
+GET localhost:8080/pageableHandlerMethodArgumentResolver?page=1&size=20
+
+### PageArgumentResolver에서 설정한 size 값보다 초과한 경우
+GET localhost:8080/pageableHandlerMethodArgumentResolver?page=1&size=10000

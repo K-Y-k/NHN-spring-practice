@@ -1,0 +1,14 @@
+###
+GET localhost:8080/json
+
+
+###
+POST localhost:8080/json
+Content-Type: application/json
+
+{
+  "name" : "유재석",
+  "age" : 50,
+  "role" : "ADMIN",
+  "class" : "A"
+}

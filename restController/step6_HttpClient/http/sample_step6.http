@@ -1,0 +1,36 @@
+
+### 우리 서버에 먼저 보낸 후 우리 서버를 통한 후 두레이 서버로 데이터 보내기
+POST localhost:8080/send-message
+Content-Type: application/json
+
+{
+  "text": "기본메세지",
+  "channel": "A",
+  "attachments": [
+    {
+      "title": "네이버 링크 첨부",
+      "text": "안녕하세요.",
+      "titleLink": "http://naver.com",
+      "botIconImage": "https://static.d//nullableooray.com/static_images/dooray-bot.png",
+      "color": "red"
+    }
+  ]
+}
+
+### 직접 두레이 서버에 데이터 보내기
+POST https://nhnacademy.dooray.com/services/3204376758577275363/4045901689874472590/W0RgKMoPTUO3RejIIJVQcg
+Content-Type: application/json
+
+{
+  "botName": "봇k",
+  "text": "기본메세지",
+  "attachments": [
+    {
+      "title": "메세지 타이틀",
+      "text": "안녕하세요.",
+      "titleLink": "http://naver.com",
+      "botIconImage": "https://static.d//nullableooray.com/static_images/dooray-bot.png",
+      "color": "red"
+    }
+  ]
+}

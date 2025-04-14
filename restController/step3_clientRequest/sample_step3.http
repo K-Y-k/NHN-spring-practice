@@ -1,0 +1,14 @@
+### 요청에서 URL 매개 변수 사용 방식 (예 : ?format=json )
+GET localhost:8080/clientJsonRequest?format=json
+
+
+### 요청에서 Accept 헤더 사용 방식 (restful 원칙에 가장 적합)
+POST localhost:8080/clientJsonRequest
+Content-Type: application/json
+
+{
+  "name" : "유재석",
+  "age" : 50,
+  "role" : "admin",
+  "class" : "A"
+}
