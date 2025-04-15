@@ -1,0 +1,32 @@
+### 회원 저장
+POST localhost:8080/members
+Content-Type: application/json
+
+{
+  "id" : "1",
+  "name" : "kyk",
+  "age" : 50,
+  "role" : "ADMIN",
+  "class" : "A"
+}
+
+### 단일 회원 조회
+GET localhost:8080/members/1
+
+### 전체 회원 조회
+GET localhost:8080/members
+
+### 회원 삭제
+DELETE http://localhost:8080/members/1
+
+### 회원 수정
+PUT http://localhost:8080/members/1
+Content-Type: application/json
+
+{
+  "id" : "1",
+  "name" : "updateKYK",
+  "age" : 55,
+  "role" : "USER",
+  "class" : "B"
+}
