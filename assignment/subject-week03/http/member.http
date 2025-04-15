@@ -1,0 +1,28 @@
+### GET /members/{id} (회원-단일 조회)
+GET http://localhost:8080/members/1
+
+### GET /members (회원-페이징 된 목록 조회)
+GET http://localhost:8080/members
+
+### GET /members/ (csv일 때 회원-페이징 된 목록 조회)
+GET http://localhost:8080/members
+Accept: text/csv
+
+### POST /members (회원-생성)
+POST http://localhost:8080/members
+Content-Type: application/json
+
+{
+  "id": "shin",
+  "name": "신건영",
+  "age": "30",
+  "class": "A",
+  "locale": "EN"
+}
+
+### POST /members (csv일 때 회원-생성)
+POST http://localhost:8080/members
+Accept: text/csv
+Content-Type: text/csv
+
+shin2,신건영2,33,B,en
