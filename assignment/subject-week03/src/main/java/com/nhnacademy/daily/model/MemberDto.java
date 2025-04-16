@@ -16,7 +16,8 @@ import lombok.Setter;
 public class MemberDto {
     private String id;
     private String name;
-
+    
+    @JsonSerialize(using = ToStringSerializer.class)
     private Integer age;
 
     @JsonProperty("class")
