@@ -11,18 +11,16 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class MemberDto {
     private String id;
     private String name;
 
-    @JsonSerialize(using = ToStringSerializer.class)
     private Integer age;
 
     @JsonProperty("class")
     private String clazz;
 
-    @JsonSerialize(using = ToStringSerializer.class)
     private Locale locale;
 }

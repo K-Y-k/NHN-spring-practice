@@ -5,6 +5,7 @@ import com.nhnacademy.daily.exception.MemberAlreadyExistsException;
 import com.nhnacademy.daily.exception.MemberNotFoundException;
 import com.nhnacademy.daily.messenger.DoorayMessengerRequest;
 import com.nhnacademy.daily.messenger.MessengerClient;
+import com.nhnacademy.daily.model.Locale;
 import com.nhnacademy.daily.model.Member;
 import com.nhnacademy.daily.model.MemberDto;
 import jakarta.annotation.PostConstruct;

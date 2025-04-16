@@ -20,6 +20,5 @@ public class ProjectDto {
     @JsonSerialize(using = CustomLocalDateSerializer.class)
     private LocalDate localDate;
 
-    @JsonSerialize(using = ToStringSerializer.class)
     private ProjectType type;
 }
