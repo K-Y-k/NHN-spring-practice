@@ -1,0 +1,24 @@
+### ADMIN 회원 저장
+POST localhost:8080/members
+Content-Type: application/json
+
+{
+  "id" : "asd",
+  "password": "asd",
+  "name" : "cs",
+  "role" : "ADMIN"
+}
+
+### USER 회원 저장
+POST localhost:8080/members
+Content-Type: application/json
+
+{
+  "id" : "zxc",
+  "password": "zxc",
+  "name" : "kyk",
+  "role" : "USER"
+}
+
+### 단일 회원 조회
+GET localhost:8080/members/1

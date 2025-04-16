@@ -1,0 +1,19 @@
+package com.nhnacademy.restcontrollerpractice.security.step2_customAndOAuth.domain;
+
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+public class Member {
+    private String id;
+    private String password;
+    private String name;
+
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Role role;
+}
