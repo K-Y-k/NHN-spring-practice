@@ -1,0 +1,27 @@
+### GET /members/{id} (회원-단일 조회)
+GET http://localhost:8080/members/1
+### GET /members/{id} (text/csv일 때 회원-단일 조회)
+GET http://localhost:8080/members/1
+Accept: text/csv
+
+### GET /members (회원-페이징 된 목록 조회)
+GET http://localhost:8080/members
+
+### POST /members (회원-생성)
+POST http://localhost:8080/members
+Content-Type: application/json
+
+{
+  "id": "test1Id",
+  "name": "test1Name",
+  "password": "test1Password",
+  "age": "30",
+  "role": "admin"
+}
+
+### POST /members (text/csv일 때 회원-생성)
+POST http://localhost:8080/members
+Content-Type: text/csv
+
+id,name,password,age,role
+test2Id,test2Name,test2Password,30,member

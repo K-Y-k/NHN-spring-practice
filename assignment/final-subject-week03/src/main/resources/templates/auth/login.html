@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Login</title>
+    </head>
+
+    <!--SecurityConfig에서 현재 작성한 http.formLogin()에서
+        로그인 요청 처리 URL(/auth/login/process)과 파라미터 이름(id, pwd로) 설정함-->
+    <body>
+        <form method="post" action="/auth/login/process">
+            <span text="id" />id: <input type="text" name="id" /><br />
+            <span text="password" />password: <input type="password" name="pwd" /><br />
+            <input type="submit" />
+        </form>
+    </body>
+
+    <a th:href="@{/oauth2/authorization/google}">
+        <button type="button">Google로 로그인</button>
+    </a>
+</html>
