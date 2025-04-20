@@ -9,6 +9,7 @@ import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.method.support.ModelAndViewContainer;
 
+
 @Slf4j
 public class PageableHandlerMethodArgumentResolver implements HandlerMethodArgumentResolver {
     /// 페이지에 기본값은 page=0, size = 5이고 max size는 10으로 설정

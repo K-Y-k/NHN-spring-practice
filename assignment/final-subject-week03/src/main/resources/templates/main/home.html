@@ -1,11 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+                xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <head>
-        <meta charset="UTF-8">
+        <meta charset="UTF-8" />
         <title>Home</title>
     </head>
 
     <body>
-        Welcome
+        Welcome,
+        <span th:if="${loginName != null}">
+            <span th:text="${loginName}"></span>
+        </span>
+
+
+        <br />
+
+        <a href="/main/admin">admin</a>
+        <br>
+
+        <a href="/main/member">member</a>
+        <br>
+
+        <a href="/main/google">goolge</a>
+        <br>
+
+        <a href="/logout">Logout</a>
+        <br>
+
+        <div sec:authorize="hasRole('ADMIN')">
+            admin 권한을 가지고 있습니다.
+        </div>
+        <div sec:authorize="hasRole('MEMBER')">
+            member 권한을 가지고 있습니다.
+        </div>
+        <div sec:authorize="hasRole('GOOGLE')">
+            google 권한을 가지고 있습니다.
+        </div>
     </body>
 </html>

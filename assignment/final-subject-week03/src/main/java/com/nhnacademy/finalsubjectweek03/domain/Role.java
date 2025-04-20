@@ -10,7 +10,8 @@ public enum Role {
     public static Role fromString(String str){
         for (Role role : Role.values()) {
             if (role.name().equalsIgnoreCase(str)) {
-                return role;
+                System.out.println("역직렬화 시도 : " + role.name());
+                return Role.valueOf(role.name().toUpperCase());
             }
         }
         //default
@@ -23,6 +24,7 @@ public enum Role {
      */
     @Override
     public String toString() {
+        System.out.println("직렬화 시도");
         return this.name().toLowerCase();
     }
 }

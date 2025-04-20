@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
     <head>
         <meta charset="UTF-8" />
         <title>Login</title>
@@ -9,13 +9,15 @@
         로그인 요청 처리 URL(/auth/login/process)과 파라미터 이름(id, pwd로) 설정함-->
     <body>
         <form method="post" action="/auth/login/process">
-            <span text="id" />id: <input type="text" name="id" /><br />
-            <span text="password" />password: <input type="password" name="pwd" /><br />
-            <input type="submit" />
+            id: <input type="text" name="id" /> <br/>
+            password: <input type="password" name="pwd" /> <br/>
+
+            <button type="submit" > 로그인</button>
         </form>
     </body>
 
     <a th:href="@{/oauth2/authorization/google}">
         <button type="button">Google로 로그인</button>
     </a>
+
 </html>

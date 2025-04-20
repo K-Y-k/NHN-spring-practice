@@ -4,8 +4,10 @@ GET http://localhost:8080/members/1
 GET http://localhost:8080/members/1
 Accept: text/csv
 
+
 ### GET /members (회원-페이징 된 목록 조회)
-GET http://localhost:8080/members
+GET http://localhost:8080/members?page=0&size=3
+
 
 ### POST /members (회원-생성)
 POST http://localhost:8080/members
@@ -16,7 +18,7 @@ Content-Type: application/json
   "name": "test1Name",
   "password": "test1Password",
   "age": "30",
-  "role": "admin"
+  "role": "ADMIN"
 }
 
 ### POST /members (text/csv일 때 회원-생성)
@@ -24,4 +26,4 @@ POST http://localhost:8080/members
 Content-Type: text/csv
 
 id,name,password,age,role
-test2Id,test2Name,test2Password,30,member
+test2Id,test2Name,test2Password,30,MEMBER

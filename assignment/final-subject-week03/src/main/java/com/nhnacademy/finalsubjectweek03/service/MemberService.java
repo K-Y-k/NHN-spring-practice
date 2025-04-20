@@ -9,4 +9,5 @@ public interface MemberService {
     Member saveMember(MemberDto memberDto);
     Member getMember(String memberId);
     Page<Member> getMembers(Pageable pageable);
+    Boolean exists(String memberId);
 }

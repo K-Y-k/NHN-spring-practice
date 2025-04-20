@@ -3,7 +3,6 @@ package com.nhnacademy.finalsubjectweek03.service.impl;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nhnacademy.finalsubjectweek03.domain.Member;
 import com.nhnacademy.finalsubjectweek03.domain.MemberDto;
-import com.nhnacademy.finalsubjectweek03.domain.Role;
 import com.nhnacademy.finalsubjectweek03.exception.MemberAlreadyExistsException;
 import com.nhnacademy.finalsubjectweek03.exception.MemberNotFoundException;
 import com.nhnacademy.finalsubjectweek03.service.MemberService;
@@ -19,12 +18,13 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @Service
 @RequiredArgsConstructor
 public class MemberServiceRedisImpl implements MemberService {
     private final ObjectMapper reidsObjectMapper;  /// @class 속성을 지우기 위해 사용
+    private final PasswordEncoder passwordEncoder;
     private final RedisTemplate<String, Object> memberRedisTemplate;
-    private final PasswordEncoder passwordEncoder; /// 비밀번호 암호화 하기 위해 사용
     private final String HASH_NAME = "Member:";
 
     @PostConstruct
@@ -71,5 +71,14 @@ public class MemberServiceRedisImpl implements MemberService {
         List<Member> pagedList = memberList.subList(start, end);
 
         return new PageImpl<>(pagedList, pageable, memberList.size());
+    }
+
+    @Override
+    public Boolean exists(String memberId) {
+        if (memberRedisTemplate.opsForHash().hasKey(HASH_NAME, memberId)) {
+            return true;
+        }
+
+        return false;
     }
 }
