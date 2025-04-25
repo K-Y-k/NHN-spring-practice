@@ -1,0 +1,33 @@
+### L1001 부서조회
+GET http://localhost:8080/department-members?departmentIds=L1001
+Accept:application/json
+X-USER-ID:nhnacademy
+
+### L1001 부서조회 여러명
+GET http://localhost:8080/department-members?departmentIds=L1001,L1003
+Accept:application/json
+X-USER-ID:nhnacademy
+
+### Exception - Missing Parameter
+GET http://localhost:8080/department-members
+Accept:application/json
+X-USER-ID:nhnacademy
+
+### Exception - Empty Parameter
+GET http://localhost:8080/department-members?departmentIds=
+Accept:application/json
+X-USER-ID:nhnacademy
+
+### Exception - application/csv
+GET http://localhost:8080/department-members?departmentIds=L1001
+Accept:application/csv
+X-USER-ID:nhnacademy
+
+### Exception - X-USER-ID:marco
+GET http://localhost:8080/department-members?departmentIds=L1001
+Accept:application/json
+X-USER-ID:marco
+
+### Exception - X-USER-ID : NULL
+GET http://localhost:8080/department-members?departmentIds=L1001
+Accept:application/json

@@ -1,0 +1,46 @@
+### department 등록
+POST http://localhost:8080/departments
+Content-Type: application/json
+X-USER-ID:nhnacademy
+
+{
+  "id":"CS0001",
+  "name":"고객서비스1팀"
+}
+
+### department 조회
+GET http://localhost:8080/departments/CS0001
+X-USER-ID:nhnacademy
+
+### department 수정
+PUT http://localhost:8080/departments/CS0001
+Content-Type: application/json
+X-USER-ID:nhnacademy
+
+{
+  "name" : "CS1팀"
+}
+
+### department 삭제
+DELETE http://localhost:8080/departments/CS0001
+X-USER-ID:nhnacademy
+
+
+### Exception - 부서 아이디 중복체크
+POST http://localhost:8080/departments
+Content-Type: application/json
+X-USER-ID:nhnacademy
+
+{
+  "id" : "L1001",
+  "name" : "고객서비스1팀"
+}
+
+### Exception - department not found
+GET http://localhost:8080/departments/CS0002
+X-USER-ID:nhnacademy
+
+### Content negotiation
+GET http://localhost:8080/departments/CS0001
+Accept:application/xml
+X-USER-ID:nhnacademy
